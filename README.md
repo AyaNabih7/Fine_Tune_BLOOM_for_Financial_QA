@@ -109,9 +109,3 @@ Adjust device_map and quantization flags depending on your hardware.
 - Integrate retrieval (FAISS / Chroma) for grounded answers.
 - Add a small demo app for interactive QA (Flask/Streamlit/Gradio).
 
-## License & citation
-- Add an appropriate license for your code and dataset. If using Hugging Face models, follow their license and terms.
-- Cite the GPT-Neo paper and any datasets you use.
-
-## Contact
-For questions or help reproducing results, open an issue or contact the repository owner.
