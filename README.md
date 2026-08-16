@@ -1,13 +1,13 @@
-# Fine_Tune_BLOOM_for_Financial_QA
+# Fine_Tune_GPT-Neo_for_Financial_QA
 
-A Colab-based notebook to fine-tune a BLOOM causal language model for financial Question Answering (QA). This repository contains an interactive Jupyter/Colab notebook that walks through preparing a financial QA dataset, configuring the tokenizer and model, applying parameter-efficient fine-tuning (e.g., LoRA/PEFT), running training, and saving the fine-tuned weights for inference.
+A Colab-based notebook to fine-tune a GPT-Neo 1.3B causal language model for financial Question Answering (QA). This repository contains an interactive Jupyter/Colab notebook that walks through preparing a fine-tuned model for domain-specific financial QA tasks using parameter-efficient methods.
 
 ## Repository contents
-- `Fine_Tune_BLOOM_for_Financial_QA.ipynb` — Main Colab/Jupyter notebook with step-by-step code and instructions.
+- `Fine_Tune_GPT-Neo_for_Financial_QA.ipynb` — Main Colab/Jupyter notebook with step-by-step code and instructions.
 - `README.md` — This file.
 
 ## Project goals
-- Fine-tune BLOOM for domain-specific (financial) QA tasks.
+- Fine-tune GPT-Neo 1.3B for domain-specific (financial) QA tasks.
 - Use parameter-efficient tuning (LoRA/PEFT) to reduce GPU/memory requirements.
 - Provide an easy-to-run Colab notebook for replication and experimentation.
 - Save the final model in a format usable for inference (HF-style or safetensors).
@@ -37,10 +37,10 @@ pip install -U "transformers>=4.30" datasets accelerate peft bitsandbytes safete
 ## Usage
 
 ### 1) Run the notebook (Colab)
-1. Open `Fine_Tune_BLOOM_for_Financial_QA.ipynb` in Google Colab (notebook contains a Colab badge).
+1. Open `Fine_Tune_GPT-Neo_for_Financial_QA.ipynb` in Google Colab (notebook contains a Colab badge).
 2. Run the cells sequentially:
    - Install dependencies
-   - Set `MODEL_NAME` (base BLOOM model, e.g., `bigscience/bloom-1b1` or another size suited to your GPU)
+   - Set `MODEL_NAME` (base GPT-Neo model, e.g., `EleutherAI/gpt-neo-1.3B` or another size suited to your GPU)
    - Mount Google Drive if you want to save checkpoints
    - Prepare and load dataset
    - Apply PEFT/LoRA configuration
@@ -49,7 +49,7 @@ pip install -U "transformers>=4.30" datasets accelerate peft bitsandbytes safete
 Tip: Reduce batch size or use gradient accumulation on limited-GPU environments.
 
 ### 2) Notebook-level variables to set
-- MODEL_NAME: base BLOOM model to fine-tune (example: `bigscience/bloom-1b1`).
+- MODEL_NAME: base GPT-Neo model to fine-tune (example: `EleutherAI/gpt-neo-1.3B`).
 - DATA_PATH or dataset variable: path to your QA dataset (json/jsonl/csv) expected format described below.
 - OUTPUT_DIR: directory to save model checkpoints and final weights.
 - LoRA / PEFT hyperparameters: rank, target modules, dropout — editable in the notebook.
@@ -99,7 +99,7 @@ Adjust device_map and quantization flags depending on your hardware.
 - Always test on out-of-sample financial questions and monitor hallucinations. Consider adding constraints or retrieval augmentation for factual grounding.
 
 ## Tips & caveats
-- Larger BLOOM variants require more memory — choose a model that matches your GPU resources.
+- GPT-Neo 1.3B is a smaller model suited for Colab T4 GPUs — choose a model that matches your GPU resources.
 - Financial domain data can be sensitive; ensure data privacy and licensing compliance.
 - If hallucinations are problematic, consider retrieval-augmented generation (RAG) or fine-tuning with stronger grounding signals.
 
@@ -111,7 +111,7 @@ Adjust device_map and quantization flags depending on your hardware.
 
 ## License & citation
 - Add an appropriate license for your code and dataset. If using Hugging Face models, follow their license and terms.
-- Cite the BLOOM paper and any datasets you use.
+- Cite the GPT-Neo paper and any datasets you use.
 
 ## Contact
 For questions or help reproducing results, open an issue or contact the repository owner.
